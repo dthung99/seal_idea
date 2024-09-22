@@ -17,6 +17,17 @@ FROM nginx:alpine
 COPY --from=build /app/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
+# Set environment variable
+# Set environment variables using ARG values
+ARG SSL_PRIVATE_KEY
+ARG SSL_CRT
+ENV SSL_PRIVATE_KEY=${SSL_PRIVATE_KEY}
+ENV SSL_CRT=${SSL_CRT}
+
+# Add a new file for SSL certificate
+RUN echo "$SSL_CRT" > /etc/ssl/certs/sealidea_com.crt
+RUN echo "$SSL_PRIVATE_KEY" > /etc/ssl/private/private.key
+
 # Expose port 80 to serve the app
 EXPOSE 5173
 

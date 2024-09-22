@@ -35,7 +35,10 @@ jobs:
         run: docker push conquyhung/seal-idea-back-end:latest
 
       - name: FRONT END - Build
-        run: docker build ./frontend --tag conquyhung/seal-idea-front-end
+        run: |
+          docker build ./frontend --tag conquyhung/seal-idea-front-end \
+            --build-arg SSL_PRIVATE_KEY=${{ secrets.SSL_PRIVATE_KEY }} \
+            --build-arg SSL_CRT=${{ secrets.SSL_CRT }}
       - name: FRONT END - Tag
         run: docker tag conquyhung/seal-idea-front-end conquyhung/seal-idea-front-end:latest
       - name: FRONT END - Push

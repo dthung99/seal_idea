@@ -36,7 +36,7 @@ jobs:
 
       - name: FRONT END - Build
         run: |
-          docker build ./frontend --tag conquyhung/seal-idea-front-end --build-arg SSL_PRIVATE_KEY=${{ secrets.SSL_PRIVATE_KEY }}
+          docker build ./frontend --tag conquyhung/seal-idea-front-end
 
 # --build-arg SSL_CRT=${{ secrets.SSL_CRT }}
 

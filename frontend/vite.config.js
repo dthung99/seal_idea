@@ -11,6 +11,10 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/backend/, ''),
       },
+      '/dev_api': {
+        target: 'http://localhost:8080/', // Your backend server URL
+        changeOrigin: true,
+      },
     },
   },
 })

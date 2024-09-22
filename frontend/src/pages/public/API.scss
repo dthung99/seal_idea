@@ -1,0 +1,52 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.api-container {
+    .api-section {
+        padding: 1rem;
+        border-radius: 1rem;
+        margin: 1rem;
+        background-color: $brand-color;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+        background: lighten($color: mix($brand_color, $brand_color_secondary, 80%), $amount: 1%);
+        color: $light;
+
+        &:hover {
+            transform: scale(1.005);
+        }
+
+        .api-title {
+            font-size: 2.5rem;
+            margin-bottom: 0rem;
+        }
+
+        .api-sub-title {
+            font-size: 1.2rem;
+            margin-bottom: 0rem;
+        }
+
+        .api-text-normal {
+            font-size: 1rem;
+        }
+
+        .api-text-small {
+            font-size: 0.8rem;
+            background-color: $dark;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+
+        }
+
+        .api_ul {
+            padding-left: 1rem; // Indentation for the list
+            margin: 0; // Remove default margin
+            font-size: 1.2rem;
+
+            .api_li {
+                margin-left: 0.5rem; // Space between list items
+                font-size: 1rem;
+                color: $light; // Text color
+            }
+        }
+
+    }
+}

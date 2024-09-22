@@ -36,15 +36,15 @@ jobs:
       - name: BACK END - Push
         run: docker push conquyhung/seal-idea-back-end:latest
 
-      # - name: FRONT END - Build
-      #   run: |
-      #     docker build ./frontend --tag conquyhung/seal-idea-front-end \
-      #       --build-arg SSL_PRIVATE_KEY="${{ secrets.SSL_PRIVATE_KEY }}" \
-      #       --build-arg SSL_CRT="${{ secrets.SSL_CRT }}"
-      # - name: FRONT END - Tag
-      #   run: docker tag conquyhung/seal-idea-front-end conquyhung/seal-idea-front-end:latest
-      # - name: FRONT END - Push
-      #   run: docker push conquyhung/seal-idea-front-end:latest
+      - name: FRONT END - Build
+        run: |
+          docker build ./frontend --tag conquyhung/seal-idea-front-end \
+            --build-arg SSL_PRIVATE_KEY="${{ secrets.SSL_PRIVATE_KEY }}" \
+            --build-arg SSL_CRT="${{ secrets.SSL_CRT }}"
+      - name: FRONT END - Tag
+        run: docker tag conquyhung/seal-idea-front-end conquyhung/seal-idea-front-end:latest
+      - name: FRONT END - Push
+        run: docker push conquyhung/seal-idea-front-end:latest
 
   deploy-to-ec2:
     name: deploy to ec2
@@ -71,21 +71,7 @@ jobs:
               docker rmi conquyhung/seal-idea-front-end:latest
               # Start new container and images
               docker pull conquyhung/seal-idea-back-end:latest
+              docker pull conquyhung/seal-idea-front-end:latest
+              docker run -d --name seal-idea-back-end -p 8080:8080 conquyhung/seal-idea-back-end:latest
+              docker run -d --name seal-idea-front-end -p 5173:5173 conquyhung/seal-idea-front-end:latest
               '
-
-        # run: |
-        #   echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-        #   ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-        #       # Now we have got the access of EC2 and we will start the deploy .
-        #       # cd /home/ec2-user
-        #       # Clean previous container and images
-        #       docker stop seal-idea-back-end seal-idea-front-end
-        #       docker rm seal-idea-back-end seal-idea-front-end
-        #       docker rmi conquyhung/seal-idea-back-end:latest
-        #       docker rmi conquyhung/seal-idea-front-end:latest
-        #       # Start new container and images
-        #       docker pull conquyhung/seal-idea-back-end:latest
-        #       docker pull conquyhung/seal-idea-front-end:latest
-        #       docker run -d --name seal-idea-back-end -p 8080:8080 conquyhung/seal-idea-back-end:latest
-        #       docker run -d --name seal-idea-front-end -p 5173:5173 conquyhung/seal-idea-front-end:latest
-        #       '

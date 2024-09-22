@@ -1,0 +1,144 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.private_encryption_main_layout {
+    display: grid;
+    grid-template-columns: 1fr min-content 1fr; // Two flexible columns and one content-fit column
+    // justify-self: center;
+
+    justify-items: center;
+
+    @media (max-width: $screen_width_cut_off) {
+        grid-template-columns: 1fr; // Stack columns into rows
+    }
+
+    .private_encryption_main_box {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin: 1rem;
+        padding: 1rem;
+        background: lighten($color: mix($brand_color, $brand_color_secondary, 70%), $amount: 0%);
+        border-radius: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+        width: 90%;
+
+        .main_box-flex_box {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            width: 100%;
+            margin: 0.5rem -0.5rem;
+
+            .main_box-text {
+                margin-right: 0.25rem;
+                flex: 1;
+                background-color: $brand_color;
+                padding: 0.5rem;
+                border-radius: 1rem;
+                color: $light;
+                min-width: 0;
+                width: 100%;
+
+                &:focus {
+                    transform: scale(1.01);
+                    outline: none;
+                }
+            }
+
+            .main_box-button {
+                margin-right: 0.25rem;
+                background-color: $brand_color_tertiary;
+                padding: 0.25rem 0.5rem;
+                border-radius: 1rem;
+                color: $light;
+                box-shadow: 0 2px 2px rgba(0, 0, 0, 1);
+                font-size: 1rem;
+                font-weight: bold;
+
+                &:last-child {
+                    margin-right: 0rem;
+                }
+
+                &:hover {
+                    transform: scale(1.01);
+                    cursor: pointer;
+                }
+
+                &:active {
+                    transform: scale(1.03);
+                }
+            }
+
+        }
+
+        .main_box-text_title {
+            margin: 0.5rem 0rem;
+            font-weight: bold;
+        }
+
+        .main_box-text_error {
+            margin: 0.5rem 0rem;
+            font-weight: bold;
+            color: $danger;
+        }
+
+        .main_box-text_input {
+            background: $brand_color;
+            margin: 0.5rem -0.5rem;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            color: $light;
+            width: 100%;
+            flex-grow: 1;
+            min-width: 0;
+            overflow-wrap: break-word; // Allows breaking long words
+            word-break: break-all; // Forces line breaks where necessary
+            white-space: pre-wrap; // Preserves whitespace and wraps lines
+
+
+            &:focus {
+                transform: scale(1.01);
+                outline: none;
+            }
+        }
+
+    }
+
+
+    .private_encryption_middle_box {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @media (max-width: $screen_width_cut_off) {
+            flex-direction: row; // Stack columns into rows
+            justify-content: center;
+            align-items: center;
+        }
+
+        .transform_button {
+            margin: 0.5rem -1rem;
+            background-color: $brand_color_tertiary;
+            padding: 0.5rem 0.5rem;
+            border-radius: 1rem;
+            color: $light;
+            box-shadow: 0 2px 2px rgba(0, 0, 0, 1);
+            font-weight: bold;
+
+            @media (max-width: $screen_width_cut_off) {
+                margin: -0.5rem 0.5rem;
+            }
+
+            &:hover {
+                transform: scale(1.01);
+                cursor: pointer;
+            }
+
+            &:active {
+                transform: scale(1.03);
+            }
+        }
+
+    }
+}

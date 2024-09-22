@@ -1,0 +1,30 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.my_footer {
+    background-color: $brand_color; // Background color
+    border-top: 1px solid $secondary;
+    display: flex; // Enable flexbox
+    flex-direction: row;
+    justify-content: center; // Space items evenly
+    align-items: center; // Center items vertically
+    color: $light; // Text color
+    padding: 0.5rem 1rem; // Padding around navbar
+    margin: 0;
+
+    .footer_main {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: flex-start;
+        justify-content: center;
+        flex-grow: 1;
+    }
+
+    .logo_icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+        width: 10%;
+    }
+}

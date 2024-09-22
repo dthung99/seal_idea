@@ -1,0 +1,20 @@
+# Ignore node_modules since dependencies are installed in the container
+node_modules
+
+# Ignore build output if it exists locally
+dist
+
+# Ignore IDE related files
+.vscode/
+
+# Ignore Git related files
+.git/
+.gitignore
+
+# Ignore some docker file to not copy it to container
+.dockerignore
+Dockerfile
+
+# Ignore helper files
+*.md
+

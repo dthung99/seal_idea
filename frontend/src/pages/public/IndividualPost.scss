@@ -1,0 +1,65 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.individual_post_layout {
+    position: relative;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+
+    .individual_post_container {
+        background-color: mix($brand_color, $green, 50%);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+        width: 100%;
+        max-width: $screen_width_cut_off*1;
+        padding: 1rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+
+        .individual_post-text {
+            font-size: 1rem;
+        }
+
+        .individual_post-text_big {
+            font-size: 2rem;
+        }
+
+        .individual_post-flash_card {
+            margin-bottom: 0.5rem;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            background-color: mix($brand_color, $green, 80%);
+            color: $light;
+            width: 100%;
+        }
+
+        .individual_post-flex_row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 0.5rem;
+
+            .individual_post-flex_row-button {
+                background-color: $brand_color_tertiary;
+                padding: 0.5rem;
+                border-radius: 1rem;
+                font-weight: bold;
+                white-space: nowrap;
+                margin-right: 0.5rem;
+
+                &:hover {
+                    transform: scale(1.1);
+                    cursor: pointer;
+                }
+
+                &:active {
+                    transform: scale(1.2);
+                }
+            }
+        }
+
+        .error_message {
+            color: $danger;
+            font-weight: bold;
+        }
+    }
+}

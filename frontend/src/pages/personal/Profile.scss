@@ -1,0 +1,206 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.profile_bigger_layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .profile_layout {
+        margin: 0rem;
+        padding: 1.5rem;
+        width: 100%;
+        max-width: $screen_width_cut_off*1;
+
+        .profile_user_details {
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: lighten($color: mix($brand_color, $brand_color_secondary, 70%), $amount: 0%);
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+
+            .profile_user_details-flex_box {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                margin-bottom: 0.5rem;
+
+                .profile_user_details-text {
+                    margin-right: 0.5rem;
+                    font-weight: bold;
+                    padding: 0.25rem;
+                }
+
+                .profile_user_details-text_box {
+                    margin-right: 0.5rem;
+                    background-color: mix($brand_color, $success, 70%);
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 1rem;
+                    color: $light;
+
+                    &:focus {
+                        transform: scale(1.01);
+                        outline: none;
+                    }
+                }
+
+                .profile_user_details-button {
+                    margin-right: 0.5rem;
+                    background-color: $brand_color_tertiary;
+                    padding: 0.25rem 0.5rem;
+                    border-radius: 1rem;
+                    color: $light;
+                    box-shadow: 0 2px 2px rgba(0, 0, 0, 1);
+                    font-weight: bold;
+
+                    &:hover {
+                        transform: scale(1.01);
+                        cursor: pointer;
+                    }
+
+                    &:active {
+                        transform: scale(1.03);
+                    }
+                }
+            }
+
+        }
+
+        .profile_user_posts {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 0rem;
+            background: lighten($color: mix($brand_color, $danger, 70%), $amount: 5%);
+            border-radius: 1rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+            margin-bottom: 1rem;
+
+            .profile_user_posts-text {
+                margin: 1rem;
+                margin-bottom: -0.5rem;
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+
+            .profile_user_posts-flex_box {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: -1rem;
+
+                &:last-child {
+                    margin-bottom: 0rem;
+                }
+
+                @media (max-width: ($screen_width_cut_off*1.25)) {
+                    flex-direction: column;
+                }
+
+                .profile_user_posts-flex_box-card {
+                    margin: 0rem;
+                    padding: 0rem;
+                }
+
+                .profile_user_posts-flex_box-util {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+
+                    @media (max-width: ($screen_width_cut_off*1.25)) {
+                        flex-direction: row;
+                        margin-top: -0.75rem;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    .profile_user_posts-flex_box-util-button {
+                        margin-right: 0.5rem;
+                        background-color: $brand_color_tertiary;
+                        padding: 0.25rem 0.5rem;
+                        border-radius: 1rem;
+                        color: $light;
+                        box-shadow: 0 2px 2px rgba(0, 0, 0, 1);
+                        font-weight: bold;
+
+                        &:hover {
+                            transform: scale(1.01);
+                            cursor: pointer;
+                        }
+
+                        &:active {
+                            transform: scale(1.03);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+.upload_key_window {
+    position: fixed; // Cover the entire viewport
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background
+    backdrop-filter: blur(5px); // Blur effect
+    z-index: 1; // Ensure it is above other content
+
+    .upload_key_window-flash_card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .close_button {
+            cursor: pointer; // Pointer cursor on hover 
+            z-index: 1000; // Ensure it's above other elements 
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            &:active {
+                transform: scale(1.2);
+            }
+        }
+
+        .upload_key_window-text_box {
+            margin: 0.5rem;
+            background-color: mix($brand_color, $success, 70%);
+            padding: 0.5rem 1rem;
+            border-radius: 1.5rem;
+            color: $light;
+            font-size: 1.5rem;
+
+            &:focus {
+                transform: scale(1.01);
+                outline: none;
+            }
+        }
+
+        .upload_key_window-button {
+            margin-right: 0.5rem;
+            background-color: $brand_color_tertiary;
+            padding: 0.25rem 0.5rem;
+            border-radius: 1rem;
+            color: $light;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+            font-weight: bold;
+
+            &:hover {
+                transform: scale(1.01);
+                cursor: pointer;
+            }
+
+            &:active {
+                transform: scale(1.03);
+            }
+
+        }
+
+    }
+
+}

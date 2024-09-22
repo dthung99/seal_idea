@@ -1,0 +1,124 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.community_layout {
+    display: grid;
+    grid-template-columns: auto; // First column fits content, second column takes remaining space
+    // grid-template-columns: auto 1fr; // First column fits content, second column takes remaining space
+    height: 100%;
+
+    @media (max-width: $screen_width_cut_off) {
+        grid-template-columns: auto;
+    }
+
+    .community_layout-left {
+        display: flex; // Enable flexbox
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+    }
+
+    .community_layout-right {
+        // display: flex; // Enable flexbox
+        display: none; // Enable flexbox
+        justify-content: center;
+        align-items: center;
+
+        @media (max-width: $screen_width_cut_off) {
+            display: none;
+        }
+    }
+}
+
+.util_flash_card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: lighten($color: mix($brand_color, $brand_color_secondary, 50%), $amount: 10%);
+    margin: 1rem;
+    padding: 0rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    width: 50%;
+    // width: $screen_width_cut_off*0.55;
+    min-width: $screen_width_cut_off*0.55;
+    height: 3rem;
+
+    .util_flash_card-search {
+        display: flex;
+        height: 80%;
+        width: 60%;
+
+        .util_flash_card-search-box {
+            height: 100%;
+            margin: 0rem 0.3rem;
+            padding-left: 0.3rem;
+            background-color: rgba(0, 0, 0, 0.3);
+            color: $light;
+            border-radius: 1rem;
+            font-size: 1rem;
+            border: none;
+            flex-grow: 1; // Stretch to fill the remaining space
+
+            &:focus {
+                transform: scale(1.01);
+                outline: none;
+            }
+
+        }
+
+        .util_flash_card-search-logo {
+            display: flex;
+            align-items: center;
+
+            &:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+
+            &:active {
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    .util_flash_card-add {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding-left: 0.6rem;
+
+        &:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        &:active {
+            transform: scale(1.2);
+        }
+    }
+
+    .util_flash_card-change_space {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-items: center;
+
+        .util_flash_card-change_space-item {
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            min-width: 2rem;
+            flex-grow: 1;
+
+            &:hover {
+                transform: scale(1.1);
+                cursor: pointer;
+            }
+
+            &:active {
+                transform: scale(1.2);
+            }
+        }
+
+    }
+}

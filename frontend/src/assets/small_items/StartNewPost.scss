@@ -1,0 +1,170 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.add_new_post_container {
+    position: fixed; // Cover the entire viewport
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); // Semi-transparent background
+    backdrop-filter: blur(5px); // Blur effect
+    z-index: 1; // Ensure it is above other content
+
+    .form {
+        position: relative;
+        background: mix($brand_color, $success, 50%);
+        padding: 0rem;
+        border-radius: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        height: 90%;
+        width: 90%;
+        max-width: 40rem;
+        min-width: $screen_width_cut_off*0.6;
+        display: flex;
+        flex-direction: column;
+
+        .close_button {
+            position: absolute; // Fixed position to stay in the same place on the screen 
+            top: 0rem; // Distance from the top 
+            right: 1rem; // Distance from the right 
+            background-color: transparent; // Transparent background 
+            border: none; // No border 
+            color: $light; // Text color 
+            font-size: 2rem; // Font size 
+            cursor: pointer; // Pointer cursor on hover 
+            z-index: 1000; // Ensure it's above other elements 
+
+            &:hover {
+                transform: scale(1.1);
+            }
+
+            &:active {
+                transform: scale(1.2);
+            }
+        }
+
+
+        .form_title {
+            margin: 0rem 0rem;
+            padding: 0.5rem;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+
+        .form_guide {
+            margin: 0rem 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: left;
+            font-size: 1rem;
+        }
+
+        input {
+            margin: 0rem 0.5rem;
+            padding: 0.25rem 1rem;
+            background-color: mix($brand_color, $light, 20%);
+            color: $black;
+            border-radius: 1rem;
+            font-size: 1rem;
+            height: auto;
+
+            &:focus {
+                background-color: mix($brand_color, $light, 10%);
+                transform: scale(1.01);
+            }
+        }
+
+        textarea {
+            margin: 0rem 0.5rem;
+            padding: 0.25rem 1rem;
+            background-color: mix($brand_color, $light, 20%);
+            color: $black;
+            border-radius: 1rem;
+            font-size: 1rem;
+            height: auto;
+
+            &:focus {
+                background-color: mix($brand_color, $light, 10%);
+                transform: scale(1.01);
+            }
+        }
+
+        .key_area {
+            display: flex;
+            margin: 0rem 0.5rem;
+            padding: 0.25rem 0rem;
+
+            // height: ;
+            input {
+                margin: 0;
+                flex-grow: 1;
+                padding: 0.25rem 1rem;
+                background-color: mix($brand_color, $light, 20%);
+                color: $black;
+                border-radius: 1rem;
+                font-size: 1rem;
+                height: auto;
+
+                &:focus {
+                    background-color: mix($brand_color, $light, 10%);
+                    transform: scale(1.01);
+                }
+
+            }
+
+            button {
+                margin: 0rem 0.25rem;
+                padding: 0.25rem 0.25rem;
+                border: none;
+                border-radius: 1rem;
+                background-color: mix($brand_color, $brand_color_secondary, 50%);
+                color: $white;
+                font-size: 1rem;
+                font-weight: bold;
+                cursor: pointer;
+                transition: background-color 0.3s;
+
+                &:hover {
+                    background-color: darken($brand_color, 10%);
+                }
+
+                &:active {
+                    transform: scale(1.05);
+                }
+            }
+
+        }
+
+        .check_box_area {
+            display: flex;
+            flex-direction: row;
+            margin: 0rem 0.5rem;
+            padding: 0rem 0rem;
+
+            .check_box_area-checkbox {
+                margin: 0rem 0rem;
+                padding: 0rem 0.5rem;
+
+            }
+
+            .check_box_area-text {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+        }
+
+        .error_message {
+            margin: 0rem 1rem;
+            padding-bottom: 0.5rem;
+            color: $danger;
+            font-size: 1rem;
+            font-weight: bold;
+            text-align: center;
+        }
+    }
+}

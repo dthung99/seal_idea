@@ -1,0 +1,146 @@
+// Custom Bootstrap Color Theme
+
+// mycolor.space - #02100B
+// Custom Variables
+$brand_color: #002429;
+$brand_color_secondary: #5f3c57; // Threedom
+$brand_color_tertiary: #524925; // Threedom
+// $brand_color_contrast: #524925; // Threedom
+// $primary: #00ab78; // Custom primary color - Highlight Palette
+// $secondary: #789e66; // Custom secondary color - Skip Shade Gradient
+// $success: #d8ec8a; // Custom success color - Skip Shade Gradient
+// $info: #33533d; // Custom info color - Skip Shade Gradient
+// $warning: #292e4b; // Custom warning color - Threedom
+// $danger: #3c2318; // Custom error color - Threedom
+// $light: #f0fcf7; // Custom light color - Discreet Palette
+// $dark: #02100B; // Custom dark color - Highlight Palette
+
+// Cut off for dynamic changing of phone and computer view
+$screen_width_cut_off: 768px;
+
+// Import Bootstrap
+@import 'bootstrap/scss/bootstrap';
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $brand_color;
+    overflow-x: hidden;
+}
+
+// Main layout for entire website
+.main_layout {
+    position: relative;
+    display: flex; // Enable flexbox
+    flex-direction: column;
+    justify-content: space-between; // Space items evenly
+    background-color: $dark; // Background color
+    color: $light; // Text color
+    padding: 0rem 0rem; // Padding around navbar
+    // min-height: 896px; // Min height so the bottom is not empty
+
+    .main_layout-top {
+        position: relative;
+        display: flex; // Enable flexbox
+        flex-direction: column;
+        min-height: 90vh;
+
+        .main_layout_navbar {
+            position: relative;
+            z-index: 2;
+        }
+
+        // Main layout for horizontal bar
+        .main_layout_horizontal {
+            display: grid;
+            grid-template-columns: min-content 1fr;
+            background-color: inherit;
+            color: inherit;
+            position: relative; // Set position to relative to allow child absolute positioning
+            height: 100%;
+            flex-grow: 1; // Stretch to fill the remaining space
+
+            @media (max-width: $screen_width_cut_off) {
+                grid-template-columns: 1fr;
+            }
+
+            // Dynamic panel change on screen size change
+            .main_layout_horizontal-info_panel {
+                display: flex;
+                position: relative;
+                visibility: visible;
+                height: 100%;
+
+                @media (max-width: $screen_width_cut_off) {
+                    position: absolute;
+                    display: none;
+                }
+            }
+
+            .main_layout_horizontal-item {
+                height: 100%;
+            }
+        }
+
+    }
+
+    .main_layout-bottom {
+        position: relative;
+        background-color: $brand_color;
+    }
+}
+
+// InfoPanel format
+.info_panel {
+    display: flex; // Enable flexbox
+    background-color: desaturate($brand_color, 50%); // Background color
+    color: $light; // Text color
+    border-right: 1px solid $brand_color_tertiary;
+    flex-direction: column;
+    justify-content: flex-start; // Start from top to bottom
+    align-items: start; // Center items vertically
+    padding: 0.5rem 1rem; // Padding around navbar
+    height: 100%;
+    // min-height: 90vh;
+    width: 20rem; // Fixed width
+    z-index: 1;
+
+    .info_panel_big_text {
+        font-size: 1.4rem;
+        margin: 0.5rem 0rem; // Space between list items
+    }
+
+    .info_panel_normal_text {
+        font-size: 1rem;
+    }
+
+    // Styles for the unordered list (ul) and list items (li)
+    .info_panel_ul {
+        padding-left: 1rem; // Indentation for the list
+        margin: 0; // Remove default margin
+
+        .info_panel_li {
+            margin-left: 0.5rem; // Space between list items
+            font-size: 1rem; // Font size of list items
+            color: $light; // Text color
+        }
+    }
+}
+
+// Standard image
+.my_responsive_img {
+    max-width: 50%;
+    height: auto;
+}
+
+// Turn off auto fill color
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s,
+        color 5000s ease-in-out 0s,
+}

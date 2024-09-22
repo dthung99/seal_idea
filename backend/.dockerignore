@@ -1,0 +1,18 @@
+# Ignore Maven directories
+.mvn/
+target/
+
+# Ignore IDE related files
+.vscode/
+
+# Ignore Git related files
+.git/
+.gitignore
+
+# Ignore some docker file to not copy it to container
+.dockerignore
+Dockerfile
+
+# Ignore helper files
+*.md
+

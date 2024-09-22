@@ -1,0 +1,76 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.my_navbar {
+    display: flex; // Enable flexbox
+    justify-content: space-between; // Space items evenly
+    align-items: center; // Center items vertically
+    background-color: $brand_color; // Background color
+    color: $light; // Text color
+    padding: 0rem 0.5rem; // Padding around navbar
+    border-bottom: 1px solid $secondary; // Border
+
+    .my_navbar-left {
+        display: flex; // Enable flexbox
+        justify-content: space-evenly;
+    }
+
+    .my_navbar-right-large {
+        display: flex; // Use flex for links
+        justify-content: space-evenly;
+
+        @media (max-width: $screen_width_cut_off) {
+            display: none;
+        }
+    }
+
+    .my_navbar-right-small {
+        display: none;
+
+        @media (max-width: $screen_width_cut_off) {
+            display: flex;
+            justify-content: space-evenly;
+        }
+    }
+}
+
+// General button
+.my_button_no_border {
+    display: flex; // Makes the button fit its content
+    justify-content: center; // Center horizontally
+    align-items: center; // Center vertically
+    padding: 0.25rem 0.5rem; // Vertical and horizontal padding
+    border: 0px solid; // No border
+    border-radius: 0.5rem; // Rounded corners
+    text-align: center; // Center text
+    text-decoration: none; // Remove underline 
+    color: inherit; // Inherit the text color from the parent 
+    background: inherit; // Remove background if any 
+    cursor: pointer; // Pointer cursor on hover
+    transition: background-color 0.1s, transform 0.1s; // Smooth transitions
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.3); // Darker shade on hover
+        transform: scale(1.05); // Slightly enlarge on hover
+    }
+
+    &:active {
+        background-color: rgba(255, 255, 255, 0.3); // Change color on click
+    }
+
+    // Text to appear when hover over some item
+    .my_hover_text {
+        display: none; // Hide the text by default
+        position: absolute; // Position it relative to the container 
+        background-color: rgba(0, 0, 0, 0.9); // Semi-transparent background 
+        color: white; // Text color 
+        padding: 0.5rem; // Padding for the text 
+        border-radius: 0.5rem; // Rounded corners 
+        top: 0%; // Position below the hover target 
+        transform: translateY(100%); // Adjust position to center 
+        white-space: nowrap; // So it does not wrap
+    }
+
+    .my_hover_target:hover+.my_hover_text {
+        display: flex; // Show the text when hovering over the target 
+    }
+}

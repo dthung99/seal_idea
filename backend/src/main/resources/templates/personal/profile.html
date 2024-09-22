@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home - Sapinion</title>
+</head>
+<body>
+    <h1>Welcome to Profile</h1>
+    <p>This is the home page.</p>
+    <form th:action="@{/login}" method="get" style="display: inline; margin: 0;">
+        <button type="submit">Login</button>
+    </form>
+     | 
+    <form th:action="@{/logout}" method="post" style="display: inline; margin: 0;">
+        <button type="submit">Logout</button>
+    </form>
+</body>
+</html>

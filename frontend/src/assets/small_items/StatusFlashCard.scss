@@ -1,0 +1,91 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.data_flash_card {
+    display: flex;
+    flex-direction: column;
+    background: mix($brand_color, $success, 30%);
+    margin: 1rem;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
+    // width: $screen_width_cut_off*0.55;
+    width: 50%;
+    min-width: $screen_width_cut_off*0.55;
+    height: 7rem;
+
+    &:hover {
+        transform: scale(1.01);
+    }
+
+    &:active {
+        transform: scale(1.02);
+        background: mix($brand_color, $success, 50%);
+    }
+
+    .data_flash_card-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        &:last-child {
+            flex-grow: 1;
+        }
+
+        .data_flash_card-title {
+            flex-grow: 1;
+            overflow: hidden; // Hides any content that overflows the box
+            text-overflow: ellipsis; // Displays an ellipsis (...) for overflowed content
+            white-space: nowrap; // Prevents text from wrapping to the next line
+            padding-right: 1rem;
+        }
+
+        .flash_card_icon {
+            padding: 0rem 0.25rem;
+
+            .flash_card_icon-root {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+
+            .flash_card_icon-note {
+                display: none;
+                white-space: nowrap;
+                position: absolute;
+                top: 0;
+                transform: translateY(-100%);
+                background-color: $brand_color_tertiary;
+                padding: 0.25rem;
+                border-radius: 0.5rem;
+                
+            }
+
+            // show some note on hover
+            .flash_card_icon-root:hover+.flash_card_icon-note {
+                display: flex;
+            }
+        }
+
+        .data_flash_card-author {
+            flex-grow: 1;
+            font-size: 0.75rem;
+            overflow: hidden; // Hides any content that overflows the box
+            text-overflow: ellipsis; // Displays an ellipsis (...) for overflowed content
+            white-space: nowrap; // Prevents text from wrapping to the next line
+            padding-right: 1rem;
+        }
+
+        .data_flash_card-date {
+            font-size: 0.75rem;
+            padding: 0rem 0.25rem;
+        }
+
+        .data_flash_card-description {
+            font-size: 0.75rem;
+            overflow: hidden; // Hides any content that overflows the box
+            text-overflow: ellipsis; // Displays an ellipsis (...) for overflowed content
+            height: 3.5rem;
+        }
+    }
+
+}

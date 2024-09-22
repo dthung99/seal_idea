@@ -1,0 +1,40 @@
+@import "../../color_variables/CustomBootstrapTheme.scss";
+
+.account_menu {
+    visibility: visible; // Hide the text by default
+    position: absolute; // Position it relative to the container 
+    top: 0%; // Position below the hover target 
+    display: flex; // Flex for adding list of items
+    flex-direction: column; // Vertical order
+    transform: translateY(2.5rem);
+    background-color: $brand_color;
+    border: 1px solid $brand_color_secondary;
+    border-radius: 0.5rem; //Round the corner
+    right: 0%; // Extend from the right
+    z-index: 1; // So it overwrite the body
+    .account_menu-item {
+        text-decoration: none; // Remove the hyperlink decoration
+        color: inherit; // Remove the hyperlink decoration
+        border-bottom: 1px solid $brand_color_secondary;
+        padding: 0.5rem 0.5rem;
+        min-width: 7rem; // Help the list have the same width everytim
+
+        &:last-child {
+            border-bottom: none; // Removes the border from the last item
+        }
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.3); // Darker shade on hover
+            transform: scale(1.01); // Slightly enlarge on hover    
+        }
+        &:active {
+            background-color: rgba(255, 255, 255, 0.3); // Change color on click
+        }
+
+    }
+}
+
+
+.account_menu_target:hover+.account_menu {
+    visibility: visible; // Show the text when hovering over the target 
+}

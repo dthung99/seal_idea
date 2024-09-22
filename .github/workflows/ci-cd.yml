@@ -73,5 +73,5 @@ jobs:
               docker pull conquyhung/seal-idea-back-end:latest
               docker pull conquyhung/seal-idea-front-end:latest
               docker run -d --name seal-idea-back-end -p 8080:8080 conquyhung/seal-idea-back-end:latest
-              docker run -d --name seal-idea-front-end -p 5173:5173 conquyhung/seal-idea-front-end:latest
+              docker run -d --name seal-idea-front-end -p 5173:5173 --add-host host.docker.internal:host-gateway conquyhung/seal-idea-front-end:latest
               '

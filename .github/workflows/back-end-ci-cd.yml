@@ -59,7 +59,7 @@ jobs:
     needs: [build-docker-images]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - name: DEPLOY TO AWS - through ssh connection to ec2
         env:
           PRIVATE_KEY: ${{secrets.EC2_SSH_PRIVATE_KEY}}

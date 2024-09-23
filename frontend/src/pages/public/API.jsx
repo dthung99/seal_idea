@@ -16,14 +16,14 @@ const API = () => {
             With key:
           </div>
           <div className="api-text-small">
-            https://api.sealidea/dev_api/get_post?postId=&lt;<i>your_post_ID</i>&gt;&key=&lt;<i>your_key</i>&gt;
+            https://sealidea.com/dev_api/get_post?postId=&lt;<i>your_post_ID</i>&gt;&key=&lt;<i>your_key</i>&gt;
           </div>
           <br />
           <div className="api-text-normal">
             Without key:
           </div>
           <div className="api-text-small">
-            https://api.sealidea/dev_api/get_post?postId=&lt;<i>your_post_ID</i>&gt;
+            https://sealidea.com/dev_api/get_post?postId=&lt;<i>your_post_ID</i>&gt;
           </div>
         </div>
       </div>

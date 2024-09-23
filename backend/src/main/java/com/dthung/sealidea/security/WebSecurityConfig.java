@@ -59,6 +59,10 @@ public class WebSecurityConfig {
         return source;
     }
 
+    // Get environment variable for SPRING REMEMBER ME KEY
+    @Value("${SPRING_REMEMBER_ME_KEY}")
+    private String rememberMeKey;
+
     @Bean
     SecurityFilterChain configure(HttpSecurity http) throws Exception {
         // Declare the server ip
@@ -89,10 +93,9 @@ public class WebSecurityConfig {
                         .deleteCookies("JSESSIONID"))
                 .rememberMe(remember -> remember
                         .userDetailsService(userDetailsService())
-                        .key("CHANGEKEYLATER") // TODO: Change key at production
+                        .key(this.rememberMeKey) // TODO: Change key at production
                         .tokenValiditySeconds(2592000) // 30 day
                         .alwaysRemember(true));
         return http.build();
     }
-
 }

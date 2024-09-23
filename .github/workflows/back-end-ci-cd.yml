@@ -47,7 +47,8 @@ jobs:
             --build-arg CORS_ORIGIN_HOST=${{ secrets.CORS_ORIGIN_HOST }} \
             --build-arg SSL_KEY_STORE="${{ secrets.SSL_KEY_STORE }}" \
             --build-arg SSL_KEY_STORE_ALIAS=${{ secrets.SSL_KEY_STORE_ALIAS }} \
-            --build-arg SSL_KEY_STORE_PASSWORD=${{ secrets.SSL_KEY_STORE_PASSWORD }}
+            --build-arg SSL_KEY_STORE_PASSWORD=${{ secrets.SSL_KEY_STORE_PASSWORD }} \
+            --build-arg SPRING_REMEMBER_ME_KEY=${{ secrets.SPRING_REMEMBER_ME_KEY }}
       - name: BACK END - Tag
         run: docker tag conquyhung/seal-idea-back-end conquyhung/seal-idea-back-end:latest
       - name: BACK END - Push

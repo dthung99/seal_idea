@@ -2,14 +2,14 @@
 
 .individual_post_layout {
     position: relative;
-    padding: 2rem;
+    padding: 2rem 0rem;
     display: flex;
     justify-content: center;
 
     .individual_post_container {
         background-color: mix($brand_color, $green, 50%);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
-        width: 100%;
+        width: 95%;
         max-width: $screen_width_cut_off*1;
         padding: 1rem;
         border-radius: 1rem;
@@ -40,13 +40,9 @@
 
         .individual_post-flex_row {
             display: flex;
+            flex-wrap: wrap; // Allows items to wrap onto the next line
             flex-direction: row;
-            align-items: center;
-
-            @media (max-width: ($smallest_screen_width * 1.2)) {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+            justify-content: flex-start; // Aligns items to the start of the line
 
             .individual_post-flex_row-button {
                 background-color: $brand_color_tertiary;

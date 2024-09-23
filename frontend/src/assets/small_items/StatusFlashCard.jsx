@@ -22,7 +22,7 @@ const StatusFlashCard = ({ postId, title, author, description, date, keyValue, .
   // Function to navigate user onclick
   const navigate = useNavigate();
   const redirectToPost = () => {
-    if (keyValue===null || keyValue==='') {
+    if (keyValue === null || keyValue === '') {
       navigate('/IndividualPost/' + postId + '/key');
       return
     }
@@ -30,13 +30,15 @@ const StatusFlashCard = ({ postId, title, author, description, date, keyValue, .
   }
 
   // Check if key is available
-  const isKeyAvailable = !(keyValue===null) && !(keyValue==="");
+  const isKeyAvailable = !(keyValue === null) && !(keyValue === "");
 
   return (
     <>
       <div className='data_flash_card' postid={postId} {...props} onClick={redirectToPost}>
         <div className='data_flash_card-section'>
-          <div className='data_flash_card-title'>{title}</div>
+          <div className='data_flash_card-title-container'>
+            <div className='data_flash_card-title'>{title}</div>
+          </div>
           <div className='flash_card_icon'>
             {!isKeyAvailable && <LockKeyhole size={'1.5rem'} color={CSSVariable.danger} strokeWidth={2.5} className='flash_card_icon-root' />}
             {isKeyAvailable && <LockKeyholeOpen size={'1.5rem'} color={CSSVariable.warning} strokeWidth={2.5} className='flash_card_icon-root' />}

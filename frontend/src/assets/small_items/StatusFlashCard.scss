@@ -31,16 +31,25 @@
             flex-grow: 1;
         }
 
-        .data_flash_card-title {
+        .data_flash_card-title-container {
             flex-grow: 1;
-            overflow: hidden; // Hides any content that overflows the box
-            text-overflow: ellipsis; // Displays an ellipsis (...) for overflowed content
-            white-space: nowrap; // Prevents text from wrapping to the next line
-            padding-right: 1rem;
+
+            .data_flash_card-title {
+                overflow: hidden; // Hides any content that overflows the box
+                text-overflow: ellipsis; // Displays an ellipsis (...) for overflowed content
+                white-space: nowrap; // Prevents text from wrapping to the next line
+                padding-right: 1rem;
+                width: 22rem;
+
+                @media (max-width: ($smallest_screen_width*1.5)) {
+                    width: 13rem;
+                }
+            }
         }
 
         .flash_card_icon {
             padding: 0rem 0.25rem;
+            min-width: 0rem;
 
             .flash_card_icon-root {
                 &:hover {
@@ -73,11 +82,13 @@
             text-overflow: ellipsis; // Displays an ellipsis (...) for overflowed content
             white-space: nowrap; // Prevents text from wrapping to the next line
             padding-right: 1rem;
+            min-width: 0rem;
         }
 
         .data_flash_card-date {
             font-size: 0.75rem;
             padding: 0rem 0.25rem;
+            min-width: 0rem;
         }
 
         .data_flash_card-description {
@@ -85,6 +96,7 @@
             overflow: hidden; // Hides any content that overflows the box
             text-overflow: ellipsis; // Displays an ellipsis (...) for overflowed content
             height: 3.5rem;
+            min-width: 0rem;
         }
     }
 

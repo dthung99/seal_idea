@@ -11,6 +11,10 @@
         width: 100%;
         max-width: $screen_width_cut_off*1;
 
+        @media (max-width: ($smallest_screen_width*1.5)) {
+            padding: 1.5rem 0.5rem;
+        }
+
         .profile_user_details {
             margin-bottom: 1rem;
             padding: 1rem;
@@ -20,6 +24,7 @@
 
             .profile_user_details-flex_box {
                 display: flex;
+                flex-wrap: wrap;
                 flex-direction: row;
                 align-items: center;
                 margin-bottom: 0.5rem;
@@ -69,7 +74,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: 0rem;
+            padding-left: 0.5rem;
             background: lighten($color: mix($brand_color, $danger, 70%), $amount: 5%);
             border-radius: 1rem;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
@@ -83,6 +88,7 @@
             }
 
             .profile_user_posts-flex_box {
+                width: 100%;
                 display: flex;
                 flex-direction: row;
                 margin-bottom: -1rem;
@@ -97,13 +103,13 @@
 
                 .profile_user_posts-flex_box-card {
                     margin: 0rem;
-                    padding: 0rem;
                 }
 
                 .profile_user_posts-flex_box-util {
                     display: flex;
                     flex-direction: column;
                     justify-content: space-evenly;
+                    padding-left: 1rem;
 
                     @media (max-width: ($screen_width_cut_off*1.25)) {
                         flex-direction: row;

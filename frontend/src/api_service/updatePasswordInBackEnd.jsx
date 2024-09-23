@@ -3,7 +3,6 @@ import axios from 'axios';
 // Send login to login to Spring security
 export const updatePasswordInBackEnd = async (oldPassword, newPassword, newConfirmedPassword) => {
     // Main communication with backend sever
-    console.log(!newPassword === newConfirmedPassword);
     if (!(newPassword === newConfirmedPassword)) {
         return 'The passwords do not match. Please try again!'
     }

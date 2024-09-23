@@ -5,6 +5,7 @@ import java.util.Arrays;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -84,16 +85,16 @@ public class WebSecurityConfig {
                         .loginProcessingUrl("/api/login") // Login api page for authentication
                         .usernameParameter("email") // The key of username
                         .passwordParameter("password") // The key of password
-                        .defaultSuccessUrl(ipAddress + "/api/login_success", true) // Redirect to the home page on
-                                                                                   // success
+                        .successHandler((req, res, auth) -> res.setHeader("loginresult", "1"))
+                        .failureHandler((req, res, auth) -> res.setHeader("loginresult", "0"))
                         .permitAll())
                 .logout((logout) -> logout.logoutUrl("/api/logout")
-                        .logoutSuccessUrl(ipAddress + "/api/logout_success")
+                        .logoutSuccessHandler((req, res, auth) -> res.setStatus(HttpStatus.OK.value()))
                         .invalidateHttpSession(true)
                         .deleteCookies("JSESSIONID"))
                 .rememberMe(remember -> remember
                         .userDetailsService(userDetailsService())
-                        .key(this.rememberMeKey) // TODO: Change key at production
+                        .key(this.rememberMeKey)
                         .tokenValiditySeconds(2592000) // 30 day
                         .alwaysRemember(true));
         return http.build();

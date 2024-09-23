@@ -18,13 +18,15 @@ const Login = () => {
   const handleLoginSubmit = async (e) => {
     e.preventDefault();
     let result = await sendLoginToBackEnd(email, password);
-    if (result === 'Login success') {
+    if (result === 'We have some server error') {
+      setErrorMessage(result);
+    } else if (result.headers.loginresult === '1') {
       setLoginStatus(true);
       navigate('/');
-    } else if (result === 'Login required') {
+    } else if (result.headers.loginresult === '0') {
       setErrorMessage('Oops! It looks like the username or password is incorrect.');
     } else {
-      setErrorMessage(result);
+      setErrorMessage('We have some server error');
     };
     return;
   };

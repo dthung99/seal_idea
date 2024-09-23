@@ -14,8 +14,12 @@ const AccountMenu = forwardRef(({ ...props }, ref) => {
   // Action when user click on Logout
   const clickLogout = async () => {
     let result = await sendLogout();
-    if (result === 'Logout success') {
-      setLoginStatus(false);
+    try {
+      if (result.status === 200) {
+        setLoginStatus(false);
+      }
+    } catch (error) {
+      console.log('Server error when trying to logout')
     }
   }
 

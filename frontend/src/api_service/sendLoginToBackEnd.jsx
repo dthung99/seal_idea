@@ -12,7 +12,7 @@ export const sendLoginToBackEnd = async (email, password) => {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded', },// Set content type
         withCredentials: true, // Include cookies
       });
-    return response.data;
+    return response;
   } catch (error) {
     return 'We have some server error';
   }

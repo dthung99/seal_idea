@@ -6,7 +6,7 @@ export const sendLogout = async (email, password) => {
   // Sent a logout request to api
   try {
     const response = await axios.post('/backend/api/logout', null, { withCredentials: true, });
-    return response.data;
+    return response;
   } catch (error) {
     return 'Server error when posting to logout API';
   }

@@ -7,7 +7,7 @@
         margin: 1rem;
         background-color: $brand-color;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
-        background: lighten($color: mix($brand_color, $brand_color_secondary, 80%), $amount: 1%);
+        background: lighten($color: mix($brand_color, $warning, 98%), $amount: 1%);
         color: $light;
 
         &:hover {

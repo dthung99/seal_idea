@@ -51,7 +51,7 @@ public class WebSecurityConfig {
         configuration.setAllowedMethods(Arrays.asList("*"));
         configuration.setAllowedHeaders(Arrays.asList("*"));
         configuration.setExposedHeaders(Arrays.asList("*"));
-        configuration.setAllowedOrigins(Arrays.asList(this.corsOriginHost));
+        configuration.setAllowedOrigins(Arrays.asList(this.corsOriginHost.split(",")));
         configuration.setMaxAge(3600L);
         configuration.setAllowCredentials(true);
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();

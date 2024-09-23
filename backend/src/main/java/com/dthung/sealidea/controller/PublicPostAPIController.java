@@ -207,15 +207,19 @@ public class PublicPostAPIController {
                 return ResponseEntity.ok(decryptMsgToSendBackDto);
             }
             ;
-            // Decrypt the data
-            String result = this.aesEncryptionService.decrypt(keyAndTextDto.getText(), key);
-            decryptMsgToSendBackDto.setMsg("Decrypt Success!");
-            decryptMsgToSendBackDto.setContent(result);
-            return ResponseEntity.ok(decryptMsgToSendBackDto);
+            try {
+                // Decrypt the data
+                String result = this.aesEncryptionService.decrypt(keyAndTextDto.getText(), key);
+                decryptMsgToSendBackDto.setMsg("Decrypt Success!");
+                decryptMsgToSendBackDto.setContent(result);
+                return ResponseEntity.ok(decryptMsgToSendBackDto);
+            } catch (Exception e) {
+                decryptMsgToSendBackDto.setMsg("Decrypt Failed!");
+                return ResponseEntity.ok(decryptMsgToSendBackDto);
+            }
         } catch (Exception e) {
             decryptMsgToSendBackDto.setMsg("Server Error!");
             return ResponseEntity.ok(decryptMsgToSendBackDto);
         }
     }
-
 }

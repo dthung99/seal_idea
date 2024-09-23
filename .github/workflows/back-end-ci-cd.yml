@@ -1,0 +1,63 @@
+name: CI-CD for back end server
+
+on:
+  push:
+    branches: ["main"]
+    paths: ["backend/**"]
+
+jobs:
+  build-docker-images:
+    name: Build docker images
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: BACK END - Build
+        run: |
+          docker build ./backend --tag conquyhung/seal-idea-back-end \
+            --build-arg PROD_POSTGRES_DB=${{ secrets.PROD_POSTGRES_DB }} \
+            --build-arg PROD_POSTGRES_USERNAME=${{ secrets.PROD_POSTGRES_USERNAME }} \
+            --build-arg PROD_POSTGRES_PASSWORD=${{ secrets.PROD_POSTGRES_PASSWORD }} \
+            --build-arg CORS_ORIGIN_HOST=${{ secrets.CORS_ORIGIN_HOST }} \
+            --build-arg SSL_KEY_STORE="${{ secrets.SSL_KEY_STORE }}" \
+            --build-arg SSL_KEY_STORE_ALIAS=${{ secrets.SSL_KEY_STORE_ALIAS }} \
+            --build-arg SSL_KEY_STORE_PASSWORD=${{ secrets.SSL_KEY_STORE_PASSWORD }}
+      - name: BACK END - Tag
+        run: docker tag conquyhung/seal-idea-back-end conquyhung/seal-idea-back-end:latest
+      - name: BACK END - Push
+        run: docker push conquyhung/seal-idea-back-end:latest
+
+  deploy-to-ec2:
+    name: deploy to ec2
+    runs-on: ubuntu-latest
+    needs: [build-docker-images]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: DEPLOY TO AWS - through ssh connection to ec2
+        env:
+          PRIVATE_KEY: ${{secrets.EC2_SSH_PRIVATE_KEY}}
+          HOSTNAME: ${{secrets.EC2_SSH_HOST}}
+          USER_NAME: ${{secrets.EC2_USER_NAME}}
+
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
+              # Now we have got the access of EC2 and we will start the deploy .
+              # cd /home/ec2-user
+              # Clean previous container and images
+              docker stop seal-idea-back-end
+              docker rm seal-idea-back-end
+              docker rmi conquyhung/seal-idea-back-end:latest
+              # Start new container and images
+              docker pull conquyhung/seal-idea-back-end:latest
+              docker run -d --name seal-idea-back-end -p 8080:8080 conquyhung/seal-idea-back-end:latest
+              '

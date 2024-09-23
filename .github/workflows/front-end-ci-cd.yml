@@ -1,10 +1,9 @@
-name: CI-CD
+name: CI-CD for front end server
 
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
+    paths: ["frontend/**"]
 
 jobs:
   build-docker-images:
@@ -20,21 +19,6 @@ jobs:
 
       - name: Checkout code
         uses: actions/checkout@v4
-
-      - name: BACK END - Build
-        run: |
-          docker build ./backend --tag conquyhung/seal-idea-back-end \
-            --build-arg PROD_POSTGRES_DB=${{ secrets.PROD_POSTGRES_DB }} \
-            --build-arg PROD_POSTGRES_USERNAME=${{ secrets.PROD_POSTGRES_USERNAME }} \
-            --build-arg PROD_POSTGRES_PASSWORD=${{ secrets.PROD_POSTGRES_PASSWORD }} \
-            --build-arg CORS_ORIGIN_HOST=${{ secrets.CORS_ORIGIN_HOST }} \
-            --build-arg SSL_KEY_STORE="${{ secrets.SSL_KEY_STORE }}" \
-            --build-arg SSL_KEY_STORE_ALIAS=${{ secrets.SSL_KEY_STORE_ALIAS }} \
-            --build-arg SSL_KEY_STORE_PASSWORD=${{ secrets.SSL_KEY_STORE_PASSWORD }}
-      - name: BACK END - Tag
-        run: docker tag conquyhung/seal-idea-back-end conquyhung/seal-idea-back-end:latest
-      - name: BACK END - Push
-        run: docker push conquyhung/seal-idea-back-end:latest
 
       - name: FRONT END - Build
         run: |
@@ -65,13 +49,10 @@ jobs:
               # Now we have got the access of EC2 and we will start the deploy .
               # cd /home/ec2-user
               # Clean previous container and images
-              docker stop seal-idea-back-end seal-idea-front-end
-              docker rm seal-idea-back-end seal-idea-front-end
-              docker rmi conquyhung/seal-idea-back-end:latest
+              docker stop seal-idea-front-end
+              docker rm seal-idea-front-end
               docker rmi conquyhung/seal-idea-front-end:latest
               # Start new container and images
-              docker pull conquyhung/seal-idea-back-end:latest
               docker pull conquyhung/seal-idea-front-end:latest
-              docker run -d --name seal-idea-back-end -p 8080:8080 conquyhung/seal-idea-back-end:latest
               docker run -d --name seal-idea-front-end -p 443:443 --add-host host.docker.internal:host-gateway conquyhung/seal-idea-front-end:latest
               '

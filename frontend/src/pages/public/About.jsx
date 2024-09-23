@@ -57,6 +57,44 @@ const About = () => {
           <div className="about-text-normal">
             I'm currently using AWS's free service to host this website, so I can't guarantee that the server will be maintained forever if there aren't any users. If you think this site is useful or have suggestions for new features, feel free to reach out! With more users, I might be able to turn it into a proper website!
           </div>
+        </div>
+        <div className="about-section">
+          <div className="about-sub-title">Shameless Self-Promotion!</div>
+          <br />
+          <div className="about-text-normal">
+            TLDR:
+          </div>
+          <ul className="about_ul">
+            <li className="about_li">
+              Websire architecture: Postgres &lt;-&gt; Spring Boot (Java) &lt;-&gt; React (JavaScript)
+            </li>
+            <li className="about_li">
+              CI-CD pipelines: Github -&gt; Docker -&gt; AWS
+            </li>
+            <li className="about_li">
+              Others: HTTPS/SSL setup, development and deployment variables are handled automatically by the CICD pipeline
+            </li>
+          </ul>
+          <br />
+          <div className="about-text-normal">
+            While I believe the concept and use cases of this project may not be groundbreaking, I have learned a tremendous amount about software development!
+          </div>
+          <br />
+          <div className="about-text-normal">
+            The website is built following a basic distributed architecture (Model-View-Controller). An Nginx server serves the React UI to users and proxies client requests to a Tomcat server (developed using the Spring Boot framework). Spring Boot perform CRUD operations to a PostgreSQL database via a JPA interface.
+          </div>
+          <br />
+          <div className="about-text-normal">
+            I've also implemented CI/CD pipelines that are triggered whenever code is pushed to GitHub. These pipelines utilize different sets of variables for deployment compared to development. They automatically retrieve these variables from GitHub Actions secrets, build Docker containers, and push them to Docker Hub. After testing and building, the pipelines access AWS EC2 instances via remote SSH, pull the new containers, remove the old ones, and start the new services. Additionally, they set up SSL certificates for secure HTTPS connections during the build and deployment process.
+          </div>
+          <br />
+          <div className="about-text-normal">
+            What’s remarkable is that I had no prior experience with PostgreSQL, Java, Spring Boot, JavaScript, React, CI/CD, Docker, AWS, or HTTPS before embarking on this project—just some basic coding knowledge and Linux skills. I completed everything in three intense weeks (a truly crazy three weeks, to be honest). As a self-taught software engineer without a CS background, I find it challenging to secure a software job today. As a fresh graduate, I have limited professional experience and am open to any opportunities.
+          </div>
+          <br />
+          <div className="about-text-normal">
+            If you find my work impressive or have any opportunities available, please consider me!
+          </div>
           <br />
           <div className="about-text-normal">
             Thank you for visiting!

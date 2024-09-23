@@ -17,6 +17,7 @@ $brand_color_tertiary: #524925; // Threedom
 
 // Cut off for dynamic changing of phone and computer view
 $screen_width_cut_off: 768px;
+$smallest_screen_width: 320px;
 
 // Import Bootstrap
 @import 'bootstrap/scss/bootstrap';

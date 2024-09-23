@@ -4,13 +4,13 @@
     display: flex;
     flex-direction: column;
     background: mix($brand_color, $success, 30%);
-    margin: 1rem;
     padding: 0.25rem 1rem;
     border-radius: 1rem;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 1);
-    // width: $screen_width_cut_off*0.55;
-    width: 50%;
-    min-width: $screen_width_cut_off*0.55;
+    margin: 1rem 0rem;
+    width: 95%;
+    max-width: $smallest_screen_width*1.5;
+    min-width: $smallest_screen_width*0.95;
     height: 7rem;
 
     &:hover {
@@ -57,7 +57,7 @@
                 background-color: $brand_color_tertiary;
                 padding: 0.25rem;
                 border-radius: 0.5rem;
-                
+
             }
 
             // show some note on hover

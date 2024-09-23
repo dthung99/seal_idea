@@ -71,16 +71,16 @@ const StartNewPost = ({ setIsAddNewPost }) => {
         <div className='add_new_post_container'>
             <div className='form'>
                 <div className='close_button' onClick={handleCloseButton}>
-                    <X color={CSSVariable.light} strokeWidth={2} size='1.5rem' />
+                    <X color={CSSVariable.danger} strokeWidth={2} size='1.5rem' />
                 </div>
                 <div className='form_title'>Encrypt and post your Idea!!!</div>
                 <input type="text" placeholder="Title - It's Public to everyone!" maxLength='127' value={title}
                     onChange={(e) => setTitle(e.target.value)} required />
                 <div className='form_guide'>Character count: {title.length}/127.</div>
-                <textarea type="text" rows={5} placeholder="Description - It's Public to everyone!" maxLength='255'
+                <textarea type="text" rows={3} placeholder="Description - It's Public to everyone!" maxLength='255'
                     value={description} onChange={(e) => setDescription(e.target.value)} required />
                 <div className='form_guide'> Character count: {description.length}/255.</div>
-                <textarea type="text" rows={15} placeholder="Content - This section is encrypted!" maxLength='1023'
+                <textarea type="text" rows={10} placeholder="Content - This section is encrypted!" maxLength='1023'
                     value={data} onChange={(e) => setData(e.target.value)} required />
                 <div className='form_guide'>Any data you share is encrypted and accessible only by those who possess the corresponding key. Character count: {data.length}/1023.</div>
                 <div className='key_area'>

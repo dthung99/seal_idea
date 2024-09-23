@@ -1,9 +1,10 @@
 @import "../../color_variables/CustomBootstrapTheme.scss";
 
 .add_new_post_container {
-    position: fixed; // Cover the entire viewport
+    position: absolute; // Cover the entire viewport
+    padding: 1rem 0rem;
     display: flex;
-    align-items: center;
+    align-items: self-start;
     justify-content: center;
     top: 0;
     left: 0;
@@ -16,13 +17,13 @@
     .form {
         position: relative;
         background: mix($brand_color, $success, 50%);
-        padding: 0rem;
+        padding: 0rem 0rem;
         border-radius: 1rem;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-        height: 90%;
+        // height: 90%;
         width: 90%;
         max-width: 40rem;
-        min-width: $screen_width_cut_off*0.6;
+        min-width: $smallest_screen_width*0.95;
         display: flex;
         flex-direction: column;
 
@@ -70,6 +71,7 @@
             border-radius: 1rem;
             font-size: 1rem;
             height: auto;
+            min-width: 0rem;
 
             &:focus {
                 background-color: mix($brand_color, $light, 10%);
@@ -85,6 +87,8 @@
             border-radius: 1rem;
             font-size: 1rem;
             height: auto;
+            min-height: 2rem;
+            max-height: 20%;
 
             &:focus {
                 background-color: mix($brand_color, $light, 10%);

@@ -6,7 +6,7 @@
             "port": 5432,
             "driver": "PostgreSQL",
             "name": "my_web_app",
-            "database": "sapinion_db",
+            "database": "sealidea_db",
             "username": "admin",
             "password": "admin"
         }

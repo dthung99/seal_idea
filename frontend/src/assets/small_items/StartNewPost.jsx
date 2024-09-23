@@ -73,7 +73,7 @@ const StartNewPost = ({ setIsAddNewPost }) => {
                 <div className='close_button' onClick={handleCloseButton}>
                     <X color={CSSVariable.danger} strokeWidth={2} size='1.5rem' />
                 </div>
-                <div className='form_title'>Encrypt and post your Idea!!!</div>
+                <div className='form_title'>Encrypt and Post!!!</div>
                 <input type="text" placeholder="Title - It's Public to everyone!" maxLength='127' value={title}
                     onChange={(e) => setTitle(e.target.value)} required />
                 <div className='form_guide'>Character count: {title.length}/127.</div>

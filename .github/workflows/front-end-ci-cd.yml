@@ -20,10 +20,14 @@ jobs:
           node-version: "20" # or the version you are using
 
       - name: Install dependencies
-        run: npm install
+        run: |
+          cd ./frontend
+          npm install
 
       - name: Run tests
-        run: npm run test -- --include ./frontend
+        run: |
+          cd ./frontend
+          npm run test
 
   build-docker-images:
     name: Build docker images

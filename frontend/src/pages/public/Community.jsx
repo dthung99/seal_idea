@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Search, Plus, ChevronLeft, ChevronRight } from 'lucide-react'
+import { Search, ChevronLeft, ChevronRight } from 'lucide-react'
 import { Link as RouterLink } from 'react-router-dom';
 
 import { fetchDataForPageNumber } from '../../api_service/fetchDataForPageNumber';
@@ -96,7 +96,7 @@ const Community = () => {
               </div>
             </div>
             <div className='util_flash_card-add' onClick={handleAddButton}>
-              <Plus color={CSSVariable.light} strokeWidth={2} size='1.5rem' />
+              Add
             </div>
             <div className='util_flash_card-change_space'>
               <div className='util_flash_card-change_space-item'

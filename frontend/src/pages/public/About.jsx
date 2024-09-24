@@ -85,7 +85,7 @@ const About = () => {
           </div>
           <br />
           <div className="about-text-normal">
-            I've also implemented CI/CD pipelines that are triggered whenever code is pushed to GitHub. These pipelines utilize different sets of variables for deployment compared to development. They automatically retrieve these variables from GitHub Actions secrets, build Docker containers, and push them to Docker Hub. After testing and building, the pipelines access AWS EC2 instances via remote SSH, pull the new containers, remove the old ones, and start the new services. Additionally, they set up SSL certificates for secure HTTPS connections during the build and deployment process.
+            I've also implemented two CI/CD pipelines for the back end and front end that are triggered automatically whenever code is pushed to GitHub. After testing the codes, they inject different sets of variables for deployment, build Docker containers, and push them to Docker Hub. After that, the pipelines access the AWS EC2 instances via remote SSH, clean the old environment, pull the new containers, and start new services. Additionally, it also automates the set-up of SSL certificates for secure HTTPS connections.
           </div>
           <br />
           <div className="about-text-normal">
@@ -94,6 +94,10 @@ const About = () => {
           <br />
           <div className="about-text-normal">
             If you find my work impressive or have any opportunities available, please consider me!
+          </div>
+          <br />
+          <div className="about-text-normal">
+            Have a look at my source code: <a href='https://github.com/dthung99/Seal_Idea'>GitHub</a>
           </div>
           <br />
           <div className="about-text-normal">

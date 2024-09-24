@@ -3,7 +3,7 @@ name: CI-CD for back end server
 on:
   push:
     branches: ["main"]
-    paths: ["backend/**"]
+    paths: ["backend/**", ".github/workflows/back-end-ci-cd.yml"]
 
 jobs:
   test:
@@ -20,7 +20,9 @@ jobs:
           distribution: "temurin" # or 'adopt' or 'zulu'
 
       - name: Run Maven tests
-        run: mvn test -Dtest=./backend
+        run: |
+          cd ./backend
+          mvn test
 
   build-docker-images:
     name: Build docker images

@@ -3,7 +3,7 @@ name: CI-CD for front end server
 on:
   push:
     branches: ["main"]
-    paths: ["frontend/**"]
+    paths: ["frontend/**", ".github/workflows/front-end-ci-cd.yml"]
 
 jobs:
   test:
@@ -14,9 +14,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Go to front end folder
-        run: cd ./frontend
-
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
@@ -26,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Run tests
-        run: npm run test
+        run: npm run test -- --include ./frontend
 
   build-docker-images:
     name: Build docker images

@@ -13,6 +13,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Go to back end folder
+        uses: cd backend
+
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:

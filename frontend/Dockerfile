@@ -33,3 +33,4 @@ EXPOSE 5173
 
 # Start Nginx when the container launches
 CMD ["nginx", "-g", "daemon off;"]
+

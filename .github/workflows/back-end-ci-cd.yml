@@ -13,12 +13,6 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Go to back end folder
-        run: cd ./backend
-
-      - name: Ls
-        run: ls
-
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:
@@ -26,7 +20,7 @@ jobs:
           distribution: "temurin" # or 'adopt' or 'zulu'
 
       - name: Run Maven tests
-        run: mvn test
+        run: mvn test -Dtest=./backend
 
   build-docker-images:
     name: Build docker images

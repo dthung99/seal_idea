@@ -16,6 +16,9 @@ jobs:
       - name: Go to back end folder
         run: cd backend
 
+      - name: Ls
+        run: ls
+
       - name: Set up JDK
         uses: actions/setup-java@v4
         with:

@@ -12,6 +12,7 @@ This is the source code for the [https://sealidea.com/](https://sealidea.com/).
 - **Database**: PostgreSQL (deployed on AWS RDS)
 - **Back-end**: Spring Boot (Java), containerized and deployed on AWS EC2
 - **Front-end**: React (JavaScript), containerized and deployed on AWS EC2
+- **Deployment**: GitHub Actions, Docker, AWS; Nginx for the front-end server and Tomcat for the back-end server (embedded in Spring)
 
 ## Deployment
 The server code and containerization steps can be found in the `backend` and `frontend` directories. The database queries are located in the `postgre_queries` directory.

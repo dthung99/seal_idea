@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="footer_main">
           <h4>Get in Touch</h4>
           <p>
-            My&nbsp;website:&nbsp;<a href="https://dthung.com" target="_blank" rel="noopener noreferrer">dthung.com</a> |
+            My&nbsp;portfolio:&nbsp;<a href="https://dthung.com" target="_blank" rel="noopener noreferrer">dthung.com</a> |
             LinkedIn:&nbsp;<a href="https://linkedin.com/in/dthung" target="_blank" rel="noopener noreferrer">linkedin.com/in/dthung</a> |
             GitHub:&nbsp;<a href="https://github.com/dthung99" target="_blank" rel="noopener noreferrer">github.com/dthung99</a>
           </p>

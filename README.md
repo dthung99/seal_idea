@@ -21,4 +21,5 @@ The project includes two CI/CD pipelines configured using GitHub Actions, which 
 
 The PostgreSQL database is hosted on AWS RDS, and the Spring Boot back-end and React front-end applications are containerized and deployed on two different ports on AWS EC2 instances.
 
-## Video Demo:  <https://youtu.be/wD_MA0MuN_k>
+## Video Demo:
+[Youtube](https://youtu.be/wD_MA0MuN_k)

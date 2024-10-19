@@ -20,3 +20,5 @@ The server code and containerization steps can be found in the `backend` and `fr
 The project includes two CI/CD pipelines configured using GitHub Actions, which can be found in the `.github/workflows` directory. These pipelines are responsible for building and deploying the containerized applications to AWS. The variables needed for deployment are kept in my GitHub secret and not publicly available.
 
 The PostgreSQL database is hosted on AWS RDS, and the Spring Boot back-end and React front-end applications are containerized and deployed on two different ports on AWS EC2 instances.
+
+## Video Demo:  <https://youtu.be/wD_MA0MuN_k>
